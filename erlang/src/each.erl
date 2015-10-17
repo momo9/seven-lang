@@ -15,6 +15,7 @@
 -export([double/1]).
 -export([descartes/2]).
 -export([map/2]).
+-export([go/0]).
 
 print_each(List) -> lists:foreach(fun(Number) -> io:format("~p~n", [Number]) end, List).
 
@@ -31,3 +32,7 @@ get_value(Result) -> case Result of
                        [] -> null;
                        NotEmpty -> lists:last(NotEmpty)
                      end.
+
+go() ->
+  A = "a",
+  io:format("~p~n", [A]).
