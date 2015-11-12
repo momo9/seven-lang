@@ -1,0 +1,204 @@
+(* 5 8)
+(= (str \a) "a")
+(list 1 2 3)
+'(list 1 2 3)
+'("abc" 1 2 3)
+:abc
+'(:abc 3)
+(first '(:abc 3))
+(doc str)
+(def people {:name "wugu", :age 25})
+(let [{:name name} people] name)
+(println name)
+(let [{name :name} people] name)
+(println name)
+(print name)
+(print (str name))
+(println (str name))
+(println people)
+name
+:name
+name
+exit
+(def people {:name "wugu", :age 25})
+(let [{a :name} people] (def name a))
+(let [{a :name} people] a)
+(let [{a :name} people] def name a))
+(let [{a :name} people] def name a)
+(let [{a :name} people] (def name a))
+name
+(def name ([{name :name} people] name))
+(def name (let [{name :name} people] name))
+name
+(defn big
+  [st n]
+  (< (count st) n))
+(big "abc" 5)
+(big "abc" 3)
+(defn my_size
+  [v]
+  (if (empty? v)
+    0
+    (+ (my_size (rest v)) 1)))
+(my_size [1,2,3,4,5])
+[1 2, 4 5]
+(defn my_size_recur
+  [vector]
+  (loop
+    [recur_vector vector count 0]
+    (if (empty? recur_vector)
+      count
+      (recur (rest recur_vector) (inc count)))))
+(my_size_recur [1,2,3,4,5])
+(reduce (fn [x, y] (+ x y)) [1,2,3])
+(reduce (fn [x, y] (+ x y)) [1,2,3] 8)
+(reduce (fn [x, y] (+ x y)) 8 [1,2,3])
+->>
+(->> [3, 2, 1]
+  (sort))
+(->> [3, 2, 1]
+  (sort)
+  (map (fn [e] (e + 1))))
+(->> [3, 2, 1]
+  (sort)
+  (count))
+(->> [3, 2, 1]
+  (sort)
+  (map (fn [e] (+ e 1))))
+(->> [3, 2, 1]
+  (sort)
+  (map (fn [e] (+ e 1)))
+  (str))
+(->> [3, 2, 1]
+  (sort)
+  (map (fn [e] (+ e 1))))
+(->> [3, 2, 1]
+  (sort)
+  (map (fn [e] (+ e 1)))
+  (interpose ","))
+(->> [3, 2, 1]
+  (sort)
+  (map (fn [e] (str (+ e 1))))
+  (interpose ","))
+(+ "a" "b")
+(str "a" "b")
+(->> [3, 2, 1]
+  (sort)
+  (map (fn [e] (str (+ e 1))))
+  (interpose ",")
+  (reduce (fn [w, s] (str w s))))
+(defn fac [n]
+  (->> (iterate inc 1)
+    (take n)))
+(fac 6)
+(defn fac [n]
+  (->> (iterate inc 1)
+    (take n)
+    (reduce *)))
+(fac 1)
+(fac 2)
+(fac 3)
+(fac 8)
+(fac 5)
+(* 1 2 3 4)
+(* 1 2 3 4 5)
+(defn fac [n]
+  (->> (iterate inc 1)
+    (take n)
+    (*)))
+(fac 5)
+(defn fac [n]
+  (* (->> (iterate inc 1)
+    (take n))))
+(fac 5)
+(defn fac [n]
+  (->> (iterate inc 1)
+    (take n)
+    (apply *)))
+(fac 5)
+(defn fac [n]
+  (->> (iterate inc 1)
+    (take n)
+    (apply *)))
+(fac [1,2,3])
+(->> [3, 2, 1]
+  (sort)
+  (map (fn [e] (str (+ e 1))))
+  (interpose ",")
+  (reduce (fn [w, s] (str w s))))
+(fac 3)
+(fac 8)
+(defn fac [n]
+  (->> (iterate inc 1)
+    (take n)
+    (reduce (fn [a, b] (* a b)))))
+(fac 5)
+(rem 3 5)
+(rem 6 5)
+(def directions [:north, :east, :west, :south])
+(defn turn [base offset]
+  (rem (+ base offset) (count directions)))
+(turn 1 1)
+(turn 1 5)
+(defprotocol Compass
+  (direction [c])
+  (left [c])
+  (right [c]))
+String.("new str")
+(String.("new str"))
+(String.("new str")
+)
+(String. ("new str")
+)
+(String .("a"))
+(String ("a"))
+(String. ("a"))
+(String.("a"))
+"str"
+(String."new")
+(String.(str "new"))
+(String (str "new"))
+(String.(str "new"))
+(def directions [:north, :east, :west, :south])
+(defn turn [base offset]
+  (rem (+ base offset) (count directions)))
+(defrecord SimpleCompass [bearing] Compass
+  (direction [_] (directions bearing))
+  (left [_] (SimpleCompass.(turn bearing 3)))
+  (right [_] (SimpleCompass.(turn bearing 1))))
+(def c (SimpleCompass.0))
+(def c (user.SimpleCompass.0))
+(defrecord SimpleCompass [bearing] Compass
+  (direction [_] (directions bearing))
+  (left [_] (SimpleCompass.(turn bearing 3)))
+  (right [_] (SimpleCompass.(turn bearing 1))))
+user.SimpleCompass
+(def c user.SimpleCompass)
+(def c user.SimpleCompass. 0)
+(def c (user.SimpleCompass. 0))
+(def c (user.SimpleCompass.0))
+(def c (user.SimpleCompass. 0))
+(c. direction)
+(direction c)
+(macroexpand 'abc)
+(macroexpand ''abc)
+(macroexpand '''abc)
+(macroexpand 'abc)
+(macroexpand abc)
+(def a (future (Thread/sleep 5000)) "a")
+(def b (future (Thread/sleep 5000)) "b")
+@a
+@b
+(def a (future (Thread/sleep 5000) "a"))
+(def b (future (Thread/sleep 5000) "b"))
+@a
+@b
+(def a (future (Thread/sleep 2000) "a"))
+(def b (future (Thread/sleep 3000) "b"))
+@a
+@b
+(def a (future (Thread/sleep 2000) "a"))
+(def b (future (Thread/sleep 3000) "b"))
+@a
+@b
+exit
